@@ -15,7 +15,11 @@ from dotenv import load_dotenv
 import os
 import dj_database_url
 import bootstrap4 
+from pymongo import MongoClient
+from djongo import models
 
+client = MongoClient("mongodb+srv://Kilom11:Koder4life!@family-ties.ovuiw.mongodb.net/myFirstDatabase")
+db = client['myFirstDatabase']
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'catcollectr.urls'
+ROOT_URLCONF = 'cookbook.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +78,7 @@ TEMPLATES = [
     },
 ]
 # where servers connect to the application
-WSGI_APPLICATION = 'catcollectr.wsgi.application'
+WSGI_APPLICATION = 'cookbook.wsgi.application'
 
 
 # Database
@@ -82,8 +86,8 @@ WSGI_APPLICATION = 'catcollectr.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'catcollector',
+        'ENGINE': 'djongo',
+        'NAME': 'cookbook',
     }
 }
 

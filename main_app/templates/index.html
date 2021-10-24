@@ -1,0 +1,70 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>CookBook</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"> 
+    </head>
+    <body>
+      
+      <div id="nav">
+        {% include "partials/navbar.html" %} 
+      </div>
+      
+      <div class="jumbotron">
+        <h1 class="display-4">Can you cook? or Nah?</h1>
+        <p class="lead">No matter whether you can cook, cant cook, wont cook
+           but should cook! This app can help with the ease of preparing your
+           first meal. Follow the easy steps and enjoy the process of chemistry
+           in the kitchen. 
+        </p>
+        <hr class="my-4">
+        <p>Peridically we will be going through the recipes and nominating popular
+          dishes. Also in our health section, we will highlight what makes a
+          dish a healthy one. 
+        </p>
+          <a class="btn btn-primary" href="/signup">Sign Up!</a>
+          <a class="btn btn-primary" href="/login">Login</a>
+        </div>
+        <!-- COOKING CAROUSEL -->
+        <div>
+          {% include "home/carousel.html" %}
+        </div>
+        <!-- REVIEWS -->
+        <div id="reviewsCon">
+          <h1> Reviews</h1>
+          <div class="container">
+            <img src={% static "media/avatar.png" %} alt="Avatar" style="width:90px">
+            <p><span>Chris Fox.</span> CEO at Mighty Schools.</p>
+            <p>John Doe saved us from a web disaster.</p>
+          </div>
+          
+          <div class="container">
+            <img src={% static "media/avatar2.png" %} alt="Avatar" style="width:90px">
+            <p><span >Rebecca Flex.</span> CEO at Company.</p>
+            <p>No one is better than John Doe.</p>
+          </div> 
+        </div>
+        <div id="reviewsCon">
+          <div class="container">
+            <img src={% static "media/avatar.png" %} alt="Avatar" style="width:90px">
+            <p><span>Chris Fox.</span> CEO at Mighty Schools.</p>
+            <p>John Doe saved us from a web disaster.</p>
+          </div>
+          
+          <div class="container">
+            <img src={% static "media/avatar2.png" %} alt="Avatar" style="width:90px">
+            <p><span >Rebecca Flex.</span> CEO at Company.</p>
+            <p>No one is better than John Doe.</p>
+          </div> 
+        </div>
+        <!-- SKILLS -->
+        
+        {% include "partials/footer.html" %} 
+       {% include "partials/scripts.html" %}
+    </body>
+  </html>

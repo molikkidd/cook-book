@@ -1,0 +1,29 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookBook</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    {% include "partials/navbar.html" %}
+    <header>
+       
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        All Rights Reserved, CookBook 2018
+    </footer>
+    {% include "partials/scripts.html" %}
+
+</body>
+</html>

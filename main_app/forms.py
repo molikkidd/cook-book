@@ -11,3 +11,4 @@ class MyUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = User
         fields = ('email','username')
+

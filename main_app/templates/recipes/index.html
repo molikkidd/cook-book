@@ -2,18 +2,18 @@
 {% load static %}
 {% block content %}
     <hr />
-    <a href="/cats/create">Add a New Cat!</a>
+    <a href="/recipes/create">Add a New Recipe!</a>
     <hr />
-    {% for cat in cats %}
+    {% for recipe in recipes %}
 
-        <a href="/cats/{{cat.id}}">
-            <p>Name: {{ cat.name }}</p>
+        <a href="/recipes/{{recipe.id}}">
+            <p>Name: {{ recipe.name }}</p>
         </a>
-        <a href="/user/{{cat.user.username}}">
-            <p>Adopted By: {{cat.user.username}}</p>
+        <a href="/user/{{recipe.user.username}}">
+            <p>Adopted By: {{recipe.user.username}}</p>
         </a>
-        {% if cat.age > 0 %}
-            <p>Age: {{ cat.age }}</p>
+        {% if recipe.age > 0 %}
+            <p>Age: {{ recipe.age }}</p>
         {% else %}
             <p>Age: Kitten</p>
         {% endif %}

@@ -1,17 +1,143 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Cat Toy List</h1>
-
-{% for cattoy in cattoys %}
+<div id="ingredInstruct">
     <div>
-        <a href="{% url 'cattoys_show' cattoy.id %}">
-            <div class="card-content">
-                <span>{{ cattoy.name }}</span>
-                <p>Color: {{ cattoy.color }}</p>
-            </div>
-        </a>
+        <h1>Ingredients </h1>
     </div>
-{% endfor %}
+    <div>
+        <h2>STEP 1: <h5>Select your Ingredients</h5></h2>
+    </div>
+    <div>
+        <h2>STEP 2: <h5>Confirm Ingredients</h5></h2>
+    </div>
+</div>
+<div id="ingredPage">
 
+
+<div id="ingredSection">
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" id="v-pills-vegetable-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vegetable" type="button" role="tab" aria-controls="v-pills-vegetable" aria-selected="false">Vegetables</button>
+        <button class="nav-link" id="v-pills-fruits-tab" data-bs-toggle="pill" data-bs-target="#v-pills-fruits" type="button" role="tab" aria-controls="v-pills-fruits" aria-selected="false">Fruits</button>
+        <button class="nav-link" id="v-pills-grains-tab" data-bs-toggle="pill" data-bs-target="#v-pills-grains" type="button" role="tab" aria-controls="v-pills-grains" aria-selected="false">Grains</button>
+        <button class="nav-link" id="v-pills-nuts-tab" data-bs-toggle="pill" data-bs-target="#v-pills-nuts" type="button" role="tab" aria-controls="v-pills-nuts" aria-selected="false">Nuts</button>
+        <button class="nav-link" id="v-pills-spices-tab" data-bs-toggle="pill" data-bs-target="#v-pills-spices" type="button" role="tab" aria-controls="v-pills-spices" aria-selected="false">Spices</button>
+        <button class="nav-link" id="v-pills-herbs-tab" data-bs-toggle="pill" data-bs-target="#v-pills-herbs" type="button" role="tab" aria-controls="v-pills-herbs" aria-selected="false">Herbs</button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-vegetable" role="tabpanel" aria-labelledby="v-pills-vegetable-tab">          
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Vegetable" %}
+                <a href="{% url 'ingredients_show' ingredient.id %}"> </a>  
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ingredient.name }}</h5>
+                            <p class="card-text">Type: {{ ingredient.type }}</p>
+                            <p>Category: {{ ingredient.category }}</p>  
+                        <a href="#" class="btn btn-primary">Add</a>
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-fruits" role="tabpanel" aria-labelledby="v-pills-fruits-tab">
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Fruits" %}
+                    <a href="{% url 'ingredients_show' ingredient.id %}"> </a>  
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ ingredient.name }}</h5>
+                                <p class="card-text">Type: {{ ingredient.type }}</p>
+                                <p>Category: {{ ingredient.category }}</p>  
+                            <a href="#" class="btn btn-primary">Add</a>
+                            </div>
+                        </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-grains" role="tabpanel" aria-labelledby="v-pills-grains-tab">
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Grains" %}
+                    <a href="{% url 'ingredients_show' ingredient.id %}"> </a>  
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ingredient.name }}</h5>
+                            <p class="card-text">Type: {{ ingredient.type }}</p>
+                            <p>Category: {{ ingredient.category }}</p>  
+                            <a href="#" class="btn btn-primary">Add</a>
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+            </div>
+        <div class="tab-pane fade" id="v-pills-nuts" role="tabpanel" aria-labelledby="v-pills-nuts-tab">
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Nuts" %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ingredient.name }}</h5>
+                            <p class="card-text">Type: {{ ingredient.type }}</p>
+                            <p>Category: {{ ingredient.category }}</p>  
+                            <a href="#" class="btn btn-primary">Add</a>
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-spices" role="tabpanel" aria-labelledby="v-pills-spices-tab">
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Spices" %}
+                    <a href="{% url 'ingredients_show' ingredient.id %}"> </a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ingredient.name }}</h5>
+                            <p class="card-text">Type: {{ ingredient.type }}</p>
+                            <p>Category: {{ ingredient.category }}</p>  
+                            <a href="#" class="btn btn-primary">Add</a>
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-herbs" role="tabpanel" aria-labelledby="v-pills-herbs-tab">
+            <div class="ingredCon">
+                {% for ingredient in ingredients %}
+                    {% if ingredient.type == "Herbs" %}
+                    <a href="{% url 'ingredients_show' ingredient.id %}"> </a>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ ingredient.name }}</h5>
+                            <p class="card-text">Type: {{ ingredient.type }}</p>
+                            <p>Category: {{ ingredient.category }}</p>  
+                            <a href="#" class="btn btn-primary">Add</a>
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="ingredDisplay">
+        <h4>Added Ingredients</h4>
+        <ul>
+
+        </ul>
+        <a class="btn btn-primary" href="#"> Confirm ingredients</a>
+    </div>
+</div>
 {% endblock %}
+
+

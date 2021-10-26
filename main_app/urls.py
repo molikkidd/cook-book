@@ -22,6 +22,7 @@ urlpatterns = [
     path('ingredients/<int:pk>/delete/', views.IngredientDelete.as_view(), name='ingredients_delete'),
     path('recipes/<int:recipe_id>/assoc_ingredient/<int:ingredient_id>', views.associate_ingredient, name='associate_ingredient'),
     path('recipes/<int:recipe_id>/unassoc_ingredient/<int:ingredient_id>', views.unassociate_ingredient, name='unassociate_ingredient'),
+    path('seeddb/', views.seedingreds, name="seeddb")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

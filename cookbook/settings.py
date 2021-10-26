@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "bootstrap4",
+    "bootstrap5",
 ]
 # AUTH_USER_MODEL = 'main_app.User'
 

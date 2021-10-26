@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .forms import NewSignUpForm
+from .forms import NewSignUpForm, RecipeForm
 from .forms import MyUserCreationForm
 from cookbook.settings import db
 import json
@@ -70,12 +70,15 @@ def profile(request, username):
 
 ############# RECIPES ###############
 
-# django will make a create cat form for us!
+# django will make a create recipe form for us!
 @method_decorator(login_required, name='dispatch')
 class RecipeCreate(CreateView):
     model = Recipe
     fields = '__all__'
     success_url = '/recipes/'
+
+    form = RecipeForm()
+    print('new recipe form', form)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -148,3 +151,36 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
+def seedingreds(request):
+    Spices = [
+        "Cardamom", 
+        "Cayenne", 
+        "Cinnamon", 
+        "Clove",
+        "Coriander", 
+        "Ginger", 
+        "Juniper", 
+        "Vanilla",
+        "Turmeric", 
+        "Anise", 
+        "Peppercorn", 
+        "Fenugreek",
+        "Cumin", 
+        "Mace", 
+        "Salt", 
+        "Allspice",
+        "Saffron", 
+        "Licorice",
+    ]
+    # for spice in Spices:
+    #     ingred = {
+    #             'type': 'Spices',
+    #             'category': 'vegan',
+    #         }
+    #     ingred.__setitem__("name", spice)
+    #     # print('list of herbs',ingred)
+    #     new_ingred = Ingredient.objects.create(type=str(ingred.get("type")), category=str(ingred.get("category")), name=str(ingred.get("name")))
+    #     # new_ingred.save()
+    #         # print('list of veggies',ingred)
+    # all_ingreds = Ingredient.objects.all()
+    # print(list(all_ingreds))
